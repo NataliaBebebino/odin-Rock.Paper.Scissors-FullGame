@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <h1>Rock paper scissors</h1>
+    <h2>Will you be able to defeat the computer?</h2>
+    <h3>The first one to score 5 points wins the game</h3>
+    <h4>Choose your element:</h4>
+
+    <button class="game-element">Rock</button>
+    <button class="game-element">Paper</button>
+    <button class="game-element">Scissors</button>
+
+
+    <div>
+        <div>Player score: <span id="player-score"></span></div> 
+    </div>
+
+    <div>
+        <div>Computer score: <span id="computer-score"></span></div> 
+    </div>
+
+    <div id="individual-round-result"></div>
+    <div id="final-result"></div>
+
+
+    <button id="btn-play-again">Play again?</button>
+
+    <script src="javascript/game.js"></script>
+</body>
+</html>
