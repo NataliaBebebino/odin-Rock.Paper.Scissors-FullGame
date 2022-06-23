@@ -5,7 +5,8 @@ let counter = {
     computer : 0
 };
 
-let btnElement = document.querySelectorAll(".game-element");
+let btnPlayerElement = document.querySelectorAll(".player-game-element");
+let btnComputerElement = document.querySelectorAll(".computer-game-element");
 let playerScore = document.querySelector("#player-score");
 let computerScore = document.querySelector("#computer-score");
 let individualRoundResult = document.querySelector("#individual-round-result");
@@ -13,47 +14,48 @@ let btnPlayAgain = document.querySelector("#btn-play-again");
 let finalResult = document.querySelector("#final-result");
 
 
-for (let index = 0; index < btnElement.length; index++) {
-    btnElement[index].addEventListener("click", playRound);
+for (let index = 0; index < btnPlayerElement.length; index++) {
+    btnPlayerElement[index].addEventListener("click", playRound);
 }
 
 function playRound(e) {
     let playerSelection = e.target.innerText.toLowerCase();
-    //console.log(playerSelection);
     let computerSelection = gameElements[Math.floor(Math.random()*gameElements.length)];
 
+    
+    for (let index = 0; index < btnComputerElement.length; index++) {
+        if (btnComputerElement[index].textContent.toLowerCase() === computerSelection) {
+            btnComputerElement[index].style.backgroundColor = "rgb(130,15,151)";
+        } else {
+            btnComputerElement[index].style.backgroundColor = "gray";
+        }        
+    }
+
     if (playerSelection === computerSelection) {
-        //console.log("It's a tie");
         individualRoundResult.textContent = "It's a tie!";
     }
     if (playerSelection === "rock" && computerSelection === "paper") {
         counter.computer++
-        //console.log("Computer wins the round; paper beats the rock.");
         individualRoundResult.textContent = "Computer wins the round! Paper beats the rock.";
     }
     if (playerSelection === "rock" && computerSelection === "scissors") {
         counter.player++;
-        //console.log("You win the round; the rock beats the scissors.");
         individualRoundResult.textContent = "You win the round! The rock beats the scissors.";
     }
     if (playerSelection === "paper" && computerSelection === "rock") {
         counter.player++;
-        //console.log("You win the round; paper beats the rock.");
         individualRoundResult.textContent = "You win the round! Paper beats the rock.";
     }
     if (playerSelection === "paper" && computerSelection === "scissors") {
         counter.computer++;
-        //console.log("Computer wins the round; the scissors beat paper.");
         individualRoundResult.textContent = "Computer wins the round! The scissors beat paper.";
     }
     if (playerSelection === "scissors" && computerSelection === "paper") {
         counter.player++;
-        //console.log("You win the round; the scissors beat paper.");
         individualRoundResult.textContent = "You win the round! The scissors beat paper.";
     }
     if (playerSelection === "scissors" && computerSelection === "rock") {
         counter.computer++;
-        //console.log("Computer wins the round; the rock beats the scissors.");
         individualRoundResult.textContent = "Computer wins the round; the rock beats the scissors.";
     }
 
@@ -62,10 +64,10 @@ function playRound(e) {
 
     if (counter.player === 5 || counter.computer === 5) {
         getGameResult();
+        for (let index = 0; index < btnPlayerElement.length; index++) {
+            btnPlayerElement[index].disabled = true;
+        }
     }
-
-    //console.log(counter.computer);
-    //console.log(counter.player);
 }
 
 
@@ -78,63 +80,22 @@ function playAgain() {
     counter.computer = 0;
     playerScore.textContent = counter.player;
     computerScore.textContent = counter.computer;
-    
-}
+    individualRoundResult.textContent = "";
+    finalResult.textContent = "";
 
-/*
-function playGame() {
-
-    let counter = {
-        player : 0,
-        computer : 0
-    };
-    
-    for (let index = 0; index < 5; index++) {
-        playRound(counter, gameElements);
+    for (let index = 0; index < btnPlayerElement.length; index++) {
+        btnPlayerElement[index].disabled = false;
+        btnComputerElement[index].style.backgroundColor = "gray";
     }
-    
-    getGameResult(counter);
 }
-*/
+
 
 function getGameResult() {
-    //console.log(`Your score is: ${counter.player}`);
-    //console.log(`Computer score is: ${counter.computer}`);
     if (counter.player > counter.computer) {
-        //console.log("You won the game");
         finalResult.textContent = "Congrats! You won the game!";
     } else if (counter.player === counter.computer){
-        //console.log("It's a tie");
         finalResult.textContent = "It's a tie.";
     } else {
-        //console.log("You lost the game");
         finalResult.textContent = "Ups... You lost the game";
     }
 }
-
-/*
-function playerPlay(gameElements) {
-    let playerSelection = (prompt("Choose either Rock, Paper or Scissors")).toLowerCase();
-
-    while (!gameElements.includes(playerSelection)) {
-        console.log("You entered an invalid option; you need to choose among Rock, Paper or Scissors");
-        playerSelection = (prompt("Choose either Rock, Paper or Scissors")).toLowerCase();
-    }
-
-    return playerSelection;
-}
-
-function computerPlay(gameElements){
-    let computerSelection = gameElements[Math.floor(Math.random()*gameElements.length)];
-    return computerSelection;    
-}
-
-
-
-
-
-// call to start the game
-playGame();
-
-
-*/

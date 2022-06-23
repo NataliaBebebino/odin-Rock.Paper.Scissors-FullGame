@@ -12,19 +12,40 @@
     <h1>Rock paper scissors</h1>
     <h2>Will you be able to defeat the computer?</h2>
     <h3>The first one to score 5 points wins the game</h3>
-    <h4>Choose your element:</h4>
 
-    <button class="game-element">Rock</button>
-    <button class="game-element">Paper</button>
-    <button class="game-element">Scissors</button>
+    <div class="container-fluid">
+        <div class="row">
 
+            <div class="col">
 
-    <div>
-        <div>Player score: <span id="player-score"></span></div> 
+                <h4>Choose your element:</h4>
+                <div class="row" id="player-elements">
+                    <button class="player-game-element btn btn-primary col">Rock</button>
+                    <button class="player-game-element btn btn-primary col">Paper</button>
+                    <button class="player-game-element btn btn-primary col">Scissors</button>
+                </div>
+                
+            </div>
+
+            <div class="col">
+                <h4>Computer selection:</h4>
+                <div id="computer-elements">
+                    <button class="computer-game-element btn btn-secondary disabled">Rock</button>
+                    <button class="computer-game-element btn btn-secondary disabled">Paper</button>
+                    <button class="computer-game-element btn btn-secondary disabled">Scissors</button>
+                </div>
+            </div>
+
+        </div>
+        
     </div>
 
     <div>
-        <div>Computer score: <span id="computer-score"></span></div> 
+        <div>Player score: <span id="player-score">0</span></div> 
+    </div>
+
+    <div>
+        <div>Computer score: <span id="computer-score">0</span></div> 
     </div>
 
     <div id="individual-round-result"></div>
