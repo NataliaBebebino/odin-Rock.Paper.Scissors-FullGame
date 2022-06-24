@@ -5,54 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <h1>Rock paper scissors</h1>
-    <h2>Will you be able to defeat the computer?</h2>
-    <h3>The first one to score 5 points wins the game</h3>
+    <br>
+    <h1 id="game-title">Rock paper scissors</h1>
+    <br>
+    <h2 id="game-teaser">Are you ready?</h2>
+    <h3 id="game-instructions">The first to score 5 points wins</h3>
 
-    <div class="container-fluid">
+
+    <div class="container-fluid" id="container-selections">
         <div class="row">
-
-            <div class="col">
-
-                <h4>Choose your element:</h4>
-                <div class="row" id="player-elements">
-                    <button class="player-game-element btn btn-primary col">Rock</button>
-                    <button class="player-game-element btn btn-primary col">Paper</button>
-                    <button class="player-game-element btn btn-primary col">Scissors</button>
+            <div class="col-lg-6 col-sm-12" id="div-player-elements">
+                <br>
+                <h4>Choose your element:</h4>           
+                <div class="row justify-content-center" id="player-elements">
+                    <button class="player-game-element btn btn-primary col-2 center-btn">Rock</button>
+                    <button class="player-game-element btn btn-primary col-2 center-btn">Paper</button>
+                    <button class="player-game-element btn btn-primary col-2 center-btn">Scissors</button>
                 </div>
-                
+                <br>            
             </div>
 
-            <div class="col">
+            <div class="col-lg-6 col-sm-12" id="div-computer-elements">
+                <br>
                 <h4>Computer selection:</h4>
-                <div id="computer-elements">
-                    <button class="computer-game-element btn btn-secondary disabled">Rock</button>
-                    <button class="computer-game-element btn btn-secondary disabled">Paper</button>
-                    <button class="computer-game-element btn btn-secondary disabled">Scissors</button>
+                <div class="row justify-content-center" id="computer-elements">
+                    <button class="computer-game-element btn btn-secondary disabled col-2 center-btn">Rock</button>
+                    <button class="computer-game-element btn btn-secondary disabled col-2 center-btn">Paper</button>
+                    <button class="computer-game-element btn btn-secondary disabled col-2 center-btn">Scissors</button>
                 </div>
+                <br>
             </div>
 
         </div>
         
     </div>
-
-    <div>
-        <div>Player score: <span id="player-score">0</span></div> 
+    <br>
+    <div class="score">Player score: <span id="player-score">0</span></div> 
+    <div class="score">Computer score: <span id="computer-score">0</span></div>   
+    <br>
+    <div class="result" id="individual-round-result"></div>
+    <br> 
+    <div class="result" id="final-result"></div>
+    <br>
+    <div id="container-btn-play-again">
+        <button class="btn btn-success" id="btn-play-again">Play again?</button>
     </div>
-
-    <div>
-        <div>Computer score: <span id="computer-score">0</span></div> 
-    </div>
-
-    <div id="individual-round-result"></div>
-    <div id="final-result"></div>
-
-
-    <button id="btn-play-again">Play again?</button>
 
     <script src="javascript/game.js"></script>
 </body>
