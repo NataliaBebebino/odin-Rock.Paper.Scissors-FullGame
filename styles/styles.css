@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(96, 80, 134);
-    color: white;
+    background-color: rgb(206, 190, 243);
+    color: rgb(0, 0, 0);
 }
 
 #container-selections {
@@ -17,11 +17,6 @@ body {
     margin: 2px;
 
 }
-
-/* 
-div {
-    border: 1px solid green;
-} */
 
 #player-elements {
     width: auto;
@@ -45,6 +40,6 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-/* #game-teaser, #game-instructions{
-    font-size: 15px;
-} */
+.computer-game-element {
+    --bs-btn-disabled-bg:gray;
+}
